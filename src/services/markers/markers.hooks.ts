@@ -1,12 +1,15 @@
+import * as feathersAuthentication from "@feathersjs/authentication";
+const { authenticate } = feathersAuthentication.hooks;
+
 export default {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [],
-    update: [],
-    patch: [],
-    remove: [],
+    create: [authenticate("jwt")],
+    update: [authenticate("jwt")],
+    patch: [authenticate("jwt")],
+    remove: [authenticate("jwt")],
   },
 
   after: {

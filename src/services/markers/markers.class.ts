@@ -7,7 +7,7 @@ export class Markers extends Service {
   constructor(options: Partial<MongooseServiceOptions>, app: Application) {
     super(options);
   }
-  async find() {
+  async find(): Promise<any> {
     return this._find({
       paginate: false,
       query: {
